@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import uniandes.dpoo.swing.interfaz.principal.PanelLista;
 import uniandes.dpoo.swing.interfaz.principal.VentanaPrincipal;
 
 @SuppressWarnings("serial")
@@ -36,10 +37,21 @@ public class VentanaAgregarRestaurante extends JFrame
         setLayout( new BorderLayout( ) );
 
         // Agrega el panel donde va a estar el mapa
-        // TODO completar
+        // TODO completar :)
+        
+        panelMapa = new PanelMapaAgregar( );
+        add( panelMapa, BorderLayout.CENTER );
 
         // Agrega en el sur un panel para los detalles del restaurante y para los botones
-        // TODO completar
+        // TODO completar :)
+        JPanel panelSur = new JPanel();
+        panelSur.setLayout(new BorderLayout( ) );
+        panelBotones= new PanelBotonesAgregar(this);
+        panelDetalles= new PanelEditarRestaurante();
+        panelSur.add(panelBotones, BorderLayout.SOUTH);
+        panelSur.add(panelDetalles, BorderLayout.CENTER);
+        
+        add(panelSur, BorderLayout.SOUTH);
 
         // Termina de configurar la ventana
         pack( );
@@ -49,11 +61,16 @@ public class VentanaAgregarRestaurante extends JFrame
     }
 
     /**
-     * Le pide al panelDetalles los datos del nuevo restaurante y se los envía a la ventana principal para que cree el nuevo restaurante, y luego cierra la ventana.
+     * Le pide al panelDetalles los datos del nuevo restaurante y se los envía a la ventana principal para que cree el nuevo restaurante, 
+     * y luego cierra la ventana.
      */
     public void agregarRestaurante( )
     {
-        // TODO completar
+        // TODO completar :)
+    	int[] coord= panelMapa.getCoordenadas();
+    	ventanaPrincipal.agregarRestaurante(panelDetalles.getNombre(), panelDetalles.getCalificacion(), coord[0], coord[1],
+    			panelDetalles.getVisitado());
+        dispose( );
     }
 
     /**

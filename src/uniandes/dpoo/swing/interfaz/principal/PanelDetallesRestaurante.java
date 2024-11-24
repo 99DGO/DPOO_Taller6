@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import uniandes.dpoo.swing.mundo.Restaurante;
 
@@ -27,20 +28,32 @@ public class PanelDetallesRestaurante extends JPanel
      * Un checkbox en el que se muestra si un restaurante fue visitado o no
      */
     private JCheckBox chkVisitado;
-
+    
     public PanelDetallesRestaurante( )
     {
+    	setLayout(new GridLayout(3,1));
+    	
         // Configura la etiqueta para el nombre
         // TODO completar el constructor
+    	labNombre=new JLabel("Nombre: ");
 
         // Configura la etiqueta para la calificación
         // TODO completar el constructor
+    	labCalificacion= new JLabel("Calificacion: ");
+    	labCalificacion.setHorizontalTextPosition(SwingConstants.LEFT);
 
         // Configura el checkbox para indicar si ya se visitaó o no el restaurante
         // TODO completar el constructor
+    	chkVisitado = new JCheckBox("Visitado: ");
+    	chkVisitado.setHorizontalTextPosition(SwingConstants.LEFT);
 
         // Organiza los elementos en la venta
         // TODO completar el constructor
+    	
+    	this.add(labNombre);
+    	this.add(labCalificacion);
+    	this.add(chkVisitado);
+    	
     }
 
     /**
@@ -51,7 +64,12 @@ public class PanelDetallesRestaurante extends JPanel
      */
     private void actualizarRestaurante( String nombre, int calificacion, boolean visitado )
     {
-     // TODO completar actualizarRestaurante
+     // TODO completar actualizarRestaurante :)
+    	labNombre.setText("Nombre: "+nombre);
+    	labCalificacion.setIcon(buscarIconoCalificacion(calificacion));
+    	labCalificacion.setText("Calificacion: ");
+    	chkVisitado.setSelected(visitado);
+
     }
 
     /**

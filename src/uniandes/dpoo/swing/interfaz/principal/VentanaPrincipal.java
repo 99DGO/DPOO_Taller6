@@ -86,7 +86,12 @@ public class VentanaPrincipal extends JFrame
      */
     public void mostrarVentanaMapa( )
     {
-        // TODO completar mostrarVentanaMapa
+        // :) TODO completar mostrarVentanaMapa
+        if( ventanaMapa == null || !ventanaMapa.isVisible( ) )
+        {
+        	ventanaMapa = new VentanaMapa(this, mundo.getRestaurantes(true));
+        	ventanaMapa.setVisible( true );
+        }
     }
 
     /**
@@ -99,7 +104,10 @@ public class VentanaPrincipal extends JFrame
      */
     public void agregarRestaurante( String nombre, int calificacion, int x, int y, boolean visitado )
     {
-        // TODO completar agregarRestaurante
+        // TODO completar agregarRestaurante:)
+    	Restaurante restNuevo = new Restaurante(nombre, calificacion, x, y, visitado);
+    	mundo.agregarRestaurante(restNuevo);
+    	actualizarRestaurantes();
     }
 
     /**
@@ -120,7 +128,9 @@ public class VentanaPrincipal extends JFrame
     private void actualizarRestaurantes( )
     {
         List<Restaurante> todos = this.mundo.getRestaurantes( true );
-        // TODO completar actualizarRestaurantes
+    	pLista.actualizarRestaurantes(todos);
+        // TODO completar actualizarRestaurantes :)
+        
     }
 
     /**

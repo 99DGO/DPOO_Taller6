@@ -55,6 +55,7 @@ public class VentanaMapa extends JFrame implements ActionListener
         // TODO completar :)
         
         panelMapa= new PanelMapaVisualizar();
+        panelMapa.actualizarMapa(restaurantes);
         
         this.add(panelMapa, BorderLayout.CENTER);
 
@@ -66,9 +67,11 @@ public class VentanaMapa extends JFrame implements ActionListener
         
         radioTodos=new JRadioButton();
         radioTodos.setText(TODOS);
+        radioTodos.addActionListener(this);
         
         radioVisitados= new JRadioButton();
         radioVisitados.setText(VISITADOS);
+        radioVisitados.addActionListener(this);
         
         panelSur.add(radioTodos);
         panelSur.add(radioVisitados);

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Paint;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -38,8 +39,14 @@ public class PanelMapaVisualizar extends JPanel
     {
         super.paint( g );
         Graphics2D g2d = ( Graphics2D )g;
+        
+        for (Restaurante rest : this.restaurantes)
+        {
+        	g2d.setPaint(Color.RED);
+            g2d.drawString(rest.getNombre(), rest.getX()+5, rest.getY()+5);
+            g2d.fillOval(rest.getX()-3, rest.getY()-3, 7, 7);	
+        }
 
-     // TODO completar y hacer que se vean los nombres de todos los restaurantes en el mapa
     }
 
     /**
